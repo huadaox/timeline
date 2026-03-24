@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PS Plus 游戏库时间线</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <div class="header-top">
+      <h1 class="logo">
+        <span class="logo-ps">PS+</span>
+        <span class="logo-text">游戏库时间线</span>
+      </h1>
+      <span class="region-badge">US Region</span>
+    </div>
+
+    <div class="controls">
+      <div class="filter-group">
+        <button class="filter-btn active" data-tier="all">全部</button>
+        <button class="filter-btn tier-essential" data-tier="essential">
+          <span class="tier-dot essential"></span>Essential
+        </button>
+        <button class="filter-btn tier-extra" data-tier="extra">
+          <span class="tier-dot extra"></span>Extra
+        </button>
+        <button class="filter-btn tier-premium" data-tier="premium">
+          <span class="tier-dot premium"></span>Premium
+        </button>
+      </div>
+
+      <div class="filter-group">
+        <button class="filter-btn active" data-platform="all">全部平台</button>
+        <button class="filter-btn" data-platform="PS5">PS5</button>
+        <button class="filter-btn" data-platform="PS4">PS4</button>
+      </div>
+
+      <div class="search-box">
+        <svg class="search-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input type="text" id="search-input" placeholder="搜索游戏..." autocomplete="off">
+        <button class="search-clear" id="search-clear" hidden>&times;</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="legend">
+    <div class="legend-item">
+      <span class="legend-arrow added">▲</span>
+      <span>入库</span>
+    </div>
+    <div class="legend-item">
+      <span class="legend-arrow removed">▼</span>
+      <span>出库</span>
+    </div>
+    <div class="legend-item">
+      <span class="legend-icon essential-claim">★</span>
+      <span>Essential (领取后永久)</span>
+    </div>
+    <div class="zoom-controls">
+      <button class="zoom-btn" id="zoom-out" title="缩小">−</button>
+      <span class="zoom-level" id="zoom-level">100%</span>
+      <button class="zoom-btn" id="zoom-in" title="放大">+</button>
+    </div>
+  </div>
+
+  <main class="timeline-container" id="timeline-container">
+    <div class="timeline-scroll" id="timeline-scroll">
+      <div class="timeline-content" id="timeline-content">
+        <!-- Cards above the axis (added) -->
+        <div class="timeline-added" id="timeline-added"></div>
+        <!-- The axis line with month markers -->
+        <div class="timeline-axis" id="timeline-axis"></div>
+        <!-- Cards below the axis (removed) -->
+        <div class="timeline-removed" id="timeline-removed"></div>
+      </div>
+    </div>
+  </main>
+
+  <div class="tooltip" id="tooltip" hidden>
+    <img class="tooltip-cover" id="tooltip-cover" src="" alt="">
+    <div class="tooltip-info">
+      <div class="tooltip-title" id="tooltip-title"></div>
+      <div class="tooltip-meta">
+        <span class="tooltip-tier" id="tooltip-tier"></span>
+        <span class="tooltip-platform" id="tooltip-platform"></span>
+      </div>
+      <div class="tooltip-date" id="tooltip-date"></div>
+    </div>
+  </div>
+
+  <div class="loading" id="loading">
+    <div class="loading-spinner"></div>
+    <p>加载游戏数据...</p>
+  </div>
+
+  <script src="js/animations.js"></script>
+  <script src="js/timeline.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
