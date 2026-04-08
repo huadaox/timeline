@@ -1,12 +1,16 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { DATA_DIR, writeJson } from './lib/catalog-data.mjs';
+import { DATA_DIR, stripHtml, writeJson } from './lib/catalog-data.mjs';
 
 const RAW_DIR = path.join(DATA_DIR, 'raw', 'ps-blog');
 const API_BASE = 'https://blog.playstation.com/wp-json/wp/v2/posts';
 const SEARCH_TERMS = [
   'PlayStation Plus Monthly Games',
   'PlayStation Plus Game Catalog'
+];
+const TAG_URLS = [
+  'https://blog.playstation.com/tag/monthly-games',
+  'https://blog.playstation.com/tag/playstation-plus'
 ];
 
 function normalizePost(post) {
@@ -54,16 +58,124 @@ async function fetchPostsForSearch(search) {
   return posts;
 }
 
-async function main() {
-  const collected = [];
+async function fetchHtml(url) {
+  const response = await fetch(url, {
+    headers: {
+      'user-agent': 'Mozilla/5.0 (compatible; ps-plus-timeline/1.0; +https://blog.playstation.com/)'
+    }
+  });
 
-  for (const search of SEARCH_TERMS) {
-    collected.push(...await fetchPostsForSearch(search));
+  if (!response.ok) {
+    throw new Error(`Failed to fetch ${url}: ${response.status} ${response.statusText}`);
   }
 
-  const posts = Array.from(
-    new Map(collected.map(post => [post.id, post])).values()
-  ).sort((a, b) => a.date.localeCompare(b.date));
+  return response.text();
+}
+
+function parseTagListing(html) {
+  const posts = [];
+  const seen = new Set();
+  const pattern = /<a[^>]+href="(https:\/\/blog\.playstation\.com\/\d{4}\/\d{2}\/\d{2}\/[^"]+\/?)"[^>]*>([\s\S]*?)<\/a>/gi;
+
+  for (const match of html.matchAll(pattern)) {
+    const link = match[1];
+    const title = stripHtml(match[2]);
+
+    if (!title) continue;
+    if (!/playstation plus monthly games|playstation plus game catalog/i.test(title)) continue;
+    if (seen.has(link)) continue;
+
+    seen.add(link);
+    posts.push({ link, title });
+  }
+
+  return posts;
+}
+
+function extractArticleContent(html) {
+  const articleMatch = html.match(/<article[\s\S]*?<\/article>/i);
+  return articleMatch ? articleMatch[0] : html;
+}
+
+function extractTitle(html) {
+  const ogTitle = html.match(/<meta[^>]+property="og:title"[^>]+content="([^"]+)"/i);
+  if (ogTitle) return stripHtml(ogTitle[1]).replace(/\s+[-–]\s+PlayStation\.Blog$/i, '').trim();
+
+  const titleMatch = html.match(/<title>([\s\S]*?)<\/title>/i);
+  if (titleMatch) return stripHtml(titleMatch[1]).replace(/\s+[-–]\s+PlayStation\.Blog$/i, '').trim();
+
+  return '';
+}
+
+function extractDate(html) {
+  const meta = html.match(/<meta[^>]+property="article:published_time"[^>]+content="([^"]+)"/i);
+  if (meta) return meta[1];
+
+  const time = html.match(/<time[^>]+datetime="([^"]+)"/i);
+  if (time) return time[1];
+
+  return new Date().toISOString();
+}
+
+function extractExcerpt(html) {
+  const meta = html.match(/<meta[^>]+property="og:description"[^>]+content="([^"]+)"/i);
+  return meta ? stripHtml(meta[1]) : '';
+}
+
+async function fetchPostsViaHtmlFallback() {
+  const listingEntries = [];
+
+  for (const url of TAG_URLS) {
+    const html = await fetchHtml(url);
+    listingEntries.push(...parseTagListing(html));
+  }
+
+  const uniqueEntries = Array.from(
+    new Map(listingEntries.map(entry => [entry.link, entry])).values()
+  );
+
+  const posts = [];
+
+  for (const entry of uniqueEntries) {
+    const html = await fetchHtml(entry.link);
+
+    posts.push({
+      id: `html:${entry.link}`,
+      date: extractDate(html),
+      modified: extractDate(html),
+      slug: entry.link.split('/').filter(Boolean).at(-1),
+      link: entry.link,
+      title: extractTitle(html) || entry.title,
+      excerpt: extractExcerpt(html),
+      content: extractArticleContent(html)
+    });
+  }
+
+  return posts.sort((a, b) => a.date.localeCompare(b.date));
+}
+
+async function main() {
+  let posts = [];
+  let fetchMode = 'wp-json';
+
+  try {
+    const collected = [];
+
+    for (const search of SEARCH_TERMS) {
+      collected.push(...await fetchPostsForSearch(search));
+    }
+
+    posts = Array.from(
+      new Map(collected.map(post => [post.id, post])).values()
+    ).sort((a, b) => a.date.localeCompare(b.date));
+  } catch (error) {
+    if (!/401 Unauthorized/i.test(String(error.message))) {
+      throw error;
+    }
+
+    fetchMode = 'html-fallback';
+    posts = await fetchPostsViaHtmlFallback();
+  }
 
   await fs.mkdir(RAW_DIR, { recursive: true });
 
@@ -72,13 +184,16 @@ async function main() {
 
   await writeJson(filePath, {
     fetchedAt: new Date().toISOString(),
-    source: 'https://blog.playstation.com/wp-json/wp/v2/posts',
+    source: fetchMode === 'wp-json'
+      ? 'https://blog.playstation.com/wp-json/wp/v2/posts'
+      : 'https://blog.playstation.com/tag/monthly-games + https://blog.playstation.com/tag/playstation-plus',
+    fetchMode,
     searches: SEARCH_TERMS,
     postCount: posts.length,
     posts
   });
 
-  console.log(`Fetched ${posts.length} PlayStation Blog posts into ${path.relative(process.cwd(), filePath)}`);
+  console.log(`Fetched ${posts.length} PlayStation Blog posts via ${fetchMode} into ${path.relative(process.cwd(), filePath)}`);
 }
 
 main().catch(error => {
