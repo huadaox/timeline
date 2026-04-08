@@ -1,0 +1,11 @@
+{
+  "name": "ps-plus-timeline",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "migrate:legacy": "node scripts/migrate-legacy-data.mjs",
+    "build:data": "node scripts/build-games-json.mjs",
+    "fetch:ps-plus": "node scripts/fetch-ps-plus-page.mjs",
+    "infer:snapshots": "node scripts/derive-snapshot-events.mjs"
+  }
+}
