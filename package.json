@@ -6,6 +6,9 @@
     "migrate:legacy": "node scripts/migrate-legacy-data.mjs",
     "build:data": "node scripts/build-games-json.mjs",
     "fetch:ps-plus": "node scripts/fetch-ps-plus-page.mjs",
-    "infer:snapshots": "node scripts/derive-snapshot-events.mjs"
+    "infer:snapshots": "node scripts/derive-snapshot-events.mjs",
+    "fetch:ps-blog": "node scripts/fetch-ps-blog-posts.mjs",
+    "import:blog-events": "node scripts/import-blog-events.mjs",
+    "sync:official": "npm run fetch:ps-plus && npm run infer:snapshots && npm run fetch:ps-blog && npm run import:blog-events && npm run build:data"
   }
 }

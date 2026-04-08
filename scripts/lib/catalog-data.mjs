@@ -60,6 +60,10 @@ export function parseProductIdFromUrl(url) {
   return match ? match[1] : null;
 }
 
+export function titleKey(normalizedTitle, platforms = []) {
+  return `${normalizedTitle}::${normalizePlatformList(platforms).sort().join(',')}`;
+}
+
 export function eventSort(a, b) {
   if (a.eventDate !== b.eventDate) return a.eventDate.localeCompare(b.eventDate);
   if (a.eventType === b.eventType) return (a.id || '').localeCompare(b.id || '');
@@ -165,4 +169,36 @@ export function stripHtml(input) {
   return decodeHtmlEntities(String(input || '').replace(/<[^>]+>/g, ' '))
     .replace(/\s+/g, ' ')
     .trim();
+}
+
+export function toIsoDateFromEnglish(input, fallbackYear) {
+  const value = String(input || '').replace(/,/g, '').trim();
+  const match = value.match(/([A-Za-z]+)\s+(\d{1,2})(?:\s+(\d{4}))?/);
+  if (!match) return null;
+
+  const month = monthNumber(match[1]);
+  if (!month) return null;
+
+  const year = Number(match[3] || fallbackYear);
+  const day = Number(match[2]);
+
+  return `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+}
+
+function monthNumber(monthName) {
+  const months = {
+    january: 1,
+    february: 2,
+    march: 3,
+    april: 4,
+    may: 5,
+    june: 6,
+    july: 7,
+    august: 8,
+    september: 9,
+    october: 10,
+    november: 11,
+    december: 12
+  };
+  return months[String(monthName || '').toLowerCase()] || null;
 }
