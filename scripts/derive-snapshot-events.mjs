@@ -35,7 +35,17 @@ async function main() {
   const files = await listSnapshotFiles();
 
   if (files.length < 2) {
-    throw new Error('Need at least two snapshot files in data/snapshots/us to infer additions/removals.');
+    await writeJson(OUTPUT_PATH, {
+      generatedAt: new Date().toISOString(),
+      region: 'US',
+      sourceDir: 'data/snapshots/us',
+      candidates: [],
+      skipped: true,
+      reason: 'Need at least two snapshot files in data/snapshots/us to infer additions/removals.'
+    });
+
+    console.log('Skipped snapshot diff because fewer than two snapshot files are available.');
+    return;
   }
 
   const results = [];
