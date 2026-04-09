@@ -12,6 +12,7 @@ const TAG_URLS = [
   'https://blog.playstation.com/tag/monthly-games',
   'https://blog.playstation.com/tag/playstation-plus'
 ];
+const MAX_TAG_PAGES = 10;
 
 function normalizePost(post) {
   return {
@@ -126,8 +127,22 @@ async function fetchPostsViaHtmlFallback() {
   const listingEntries = [];
 
   for (const url of TAG_URLS) {
-    const html = await fetchHtml(url);
-    listingEntries.push(...parseTagListing(html));
+    let emptyPages = 0;
+
+    for (let page = 1; page <= MAX_TAG_PAGES; page += 1) {
+      const pageUrl = page === 1 ? url : `${url}/page/${page}/`;
+      const html = await fetchHtml(pageUrl);
+      const entries = parseTagListing(html);
+
+      if (entries.length === 0) {
+        emptyPages += 1;
+        if (emptyPages >= 2) break;
+        continue;
+      }
+
+      emptyPages = 0;
+      listingEntries.push(...entries);
+    }
   }
 
   const uniqueEntries = Array.from(

@@ -15,6 +15,17 @@ import {
 } from './lib/catalog-data.mjs';
 
 const RAW_DIR = path.join(DATA_DIR, 'raw', 'ps-blog');
+const HEADING_BLOCKLIST = [
+  /download the image/i,
+  /latest news/i,
+  /^playstation plus$/i,
+  /last chance to download/i,
+  /last chance to add/i,
+  /enter to win/i,
+  /starter pack/i,
+  /movie credit promo/i,
+  /sony pictures core/i
+];
 
 function parseArgs(argv) {
   const args = new Map();
@@ -107,6 +118,14 @@ function splitTitleAndPlatforms(heading) {
   return { title, platforms };
 }
 
+function isBlockedHeading(heading) {
+  return HEADING_BLOCKLIST.some(pattern => pattern.test(heading));
+}
+
+function isBlockedTitle(title) {
+  return isBlockedHeading(String(title || '').trim());
+}
+
 function parseMonthlyEntries(post) {
   const headings = parseHeadings(post.content);
   const entries = [];
@@ -114,7 +133,7 @@ function parseMonthlyEntries(post) {
   for (const heading of headings) {
     if (!heading || /last chance to add/i.test(heading)) break;
     if (/playstation plus/i.test(heading)) continue;
-    if (/download this image/i.test(heading)) continue;
+    if (isBlockedHeading(heading)) continue;
 
     const { title, platforms } = splitTitleAndPlatforms(heading);
     if (!title || title.split(' ').length < 2) continue;
@@ -153,7 +172,7 @@ function parseCatalogEntries(post) {
     }
 
     if (!currentTier) continue;
-    if (/download this image/i.test(heading)) continue;
+    if (isBlockedHeading(heading)) continue;
 
     const { title, platforms } = splitTitleAndPlatforms(heading);
     if (!title || title.split(' ').length < 2) continue;
@@ -253,6 +272,25 @@ function upsertEvents(existingEvents, newEvents) {
   return merged;
 }
 
+function replaceOfficialBlogEvents(existingEvents, newEvents, sourcePostId) {
+  const kept = existingEvents.filter(event => !(event.confidence === 'official-blog' && event.sourcePostId === sourcePostId));
+  return upsertEvents(kept, newEvents);
+}
+
+function pruneUnusedBlogTitles(titles, events) {
+  const usedIds = new Set(events.map(event => event.titleId));
+  return titles.filter(title => !(title.source === 'official-blog' && !usedIds.has(title.id)));
+}
+
+function filterBlockedOfficialBlogEvents(events, titles) {
+  const titleMap = new Map(titles.map(title => [title.id, title]));
+  return events.filter(event => {
+    if (event.confidence !== 'official-blog') return true;
+    const title = titleMap.get(event.titleId);
+    return !title || !isBlockedTitle(title.displayTitle || title.title);
+  });
+}
+
 function parsePostEntries(post) {
   if (isMonthlyPost(post)) {
     return {
@@ -317,16 +355,22 @@ async function main() {
       });
     }
 
-    const merged = upsertEvents(events, newEvents);
+    const merged = replaceOfficialBlogEvents(events, newEvents, post.id);
     importedEventCount += merged.length - events.length;
     events = merged;
   }
+
+  events = filterBlockedOfficialBlogEvents(events, titles);
+  const prunedTitles = pruneUnusedBlogTitles(
+    titles.filter(title => !isBlockedTitle(title.displayTitle || title.title)),
+    events
+  );
 
   if (!dryRun) {
     await writeJson(TITLES_PATH, {
       ...titlesDoc,
       updatedAt: new Date().toISOString(),
-      titles: titles.sort((a, b) => a.displayTitle.localeCompare(b.displayTitle))
+      titles: prunedTitles.sort((a, b) => a.displayTitle.localeCompare(b.displayTitle))
     });
 
     await writeJson(EVENTS_PATH, {
@@ -338,6 +382,7 @@ async function main() {
 
   console.log(`${dryRun ? 'Dry run:' : 'Imported'} ${importedEventCount} blog events from ${path.relative(process.cwd(), inputPath)}`);
   console.log(`${dryRun ? 'Would create' : 'Created'} ${createdTitleCount} title placeholders`);
+  console.log(`${dryRun ? 'Would retain' : 'Retained'} ${prunedTitles.length} titles after pruning unused official-blog placeholders`);
 }
 
 main().catch(error => {
