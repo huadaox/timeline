@@ -13,6 +13,14 @@ const TAG_URLS = [
   'https://blog.playstation.com/tag/playstation-plus'
 ];
 const MAX_TAG_PAGES = 10;
+const SITEMAP_INDEX_URLS = [
+  'https://blog.playstation.com/sitemap_index.xml',
+  'https://blog.playstation.com/post-sitemap.xml'
+];
+const POST_URL_PATTERNS = [
+  /\/\d{4}\/\d{2}\/\d{2}\/playstation-plus-monthly-games-/i,
+  /\/\d{4}\/\d{2}\/\d{2}\/playstation-plus-game-catalog-/i
+];
 
 function normalizePost(post) {
   return {
@@ -93,6 +101,79 @@ function parseTagListing(html) {
   return posts;
 }
 
+function isRelevantPostUrl(url) {
+  return POST_URL_PATTERNS.some(pattern => pattern.test(url));
+}
+
+function parseSitemapLocs(xml) {
+  const locs = [];
+  const pattern = /<loc>([^<]+)<\/loc>/gi;
+
+  for (const match of xml.matchAll(pattern)) {
+    locs.push(match[1].trim());
+  }
+
+  return locs;
+}
+
+async function fetchPostsViaSitemaps() {
+  const sitemapUrls = new Set();
+
+  for (const url of SITEMAP_INDEX_URLS) {
+    try {
+      const xml = await fetchHtml(url);
+      const locs = parseSitemapLocs(xml);
+
+      for (const loc of locs) {
+        if (/post-sitemap/i.test(loc) || isRelevantPostUrl(loc)) {
+          sitemapUrls.add(loc);
+        }
+      }
+    } catch (error) {
+      continue;
+    }
+  }
+
+  const articleUrls = new Set();
+
+  for (const sitemapUrl of sitemapUrls) {
+    if (isRelevantPostUrl(sitemapUrl)) {
+      articleUrls.add(sitemapUrl);
+      continue;
+    }
+
+    try {
+      const xml = await fetchHtml(sitemapUrl);
+      const locs = parseSitemapLocs(xml);
+      for (const loc of locs) {
+        if (isRelevantPostUrl(loc)) {
+          articleUrls.add(loc);
+        }
+      }
+    } catch (error) {
+      continue;
+    }
+  }
+
+  const posts = [];
+
+  for (const link of [...articleUrls].sort()) {
+    const html = await fetchHtml(link);
+    posts.push({
+      id: `html:${link}`,
+      date: extractDate(html),
+      modified: extractDate(html),
+      slug: link.split('/').filter(Boolean).at(-1),
+      link,
+      title: extractTitle(html),
+      excerpt: extractExcerpt(html),
+      content: extractArticleContent(html)
+    });
+  }
+
+  return posts.sort((a, b) => a.date.localeCompare(b.date));
+}
+
 function extractArticleContent(html) {
   const articleMatch = html.match(/<article[\s\S]*?<\/article>/i);
   return articleMatch ? articleMatch[0] : html;
@@ -124,6 +205,11 @@ function extractExcerpt(html) {
 }
 
 async function fetchPostsViaHtmlFallback() {
+  const sitemapPosts = await fetchPostsViaSitemaps();
+  if (sitemapPosts.length > 0) {
+    return sitemapPosts;
+  }
+
   const listingEntries = [];
 
   for (const url of TAG_URLS) {
