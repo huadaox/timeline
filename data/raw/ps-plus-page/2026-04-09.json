@@ -1,0 +1,26 @@
+{
+  "fetchedAt": "2026-04-09T01:47:00.697Z",
+  "sourceUrl": "https://www.playstation.com/en-us/ps-plus/games/",
+  "pages": [
+    {
+      "section": "game-catalog",
+      "url": "https://www.playstation.com/en-us/ps-plus/games/?category=GAME_CATALOG",
+      "htmlLength": 372311
+    },
+    {
+      "section": "classics-catalog",
+      "url": "https://www.playstation.com/en-us/ps-plus/games/?category=CLASSICS_CATALOG",
+      "htmlLength": 372311
+    },
+    {
+      "section": "monthly-games",
+      "url": "https://www.playstation.com/en-us/ps-plus/games/?category=MONTHLY_GAMES",
+      "htmlLength": 373342
+    },
+    {
+      "section": "game-trials",
+      "url": "https://www.playstation.com/en-us/ps-plus/games/?category=GAME_TRIALS",
+      "htmlLength": 372311
+    }
+  ]
+}

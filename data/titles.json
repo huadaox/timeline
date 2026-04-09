@@ -810,6 +810,34 @@
       "legacyGameId": "ess-2023-05-desc"
     },
     {
+      "id": "blog:destiny-2-lightfall:html:https://blog.playstation.com/2024/05/01/playstation-plus-monthly-games-for-may-ea-sports-fc-24-ghostrunner-2-tunic-destiny-2-lightfall/",
+      "slug": "destiny-2-lightfall",
+      "displayTitle": "Destiny 2: Lightfall***",
+      "normalizedTitle": "destiny 2 lightfall***",
+      "canonicalUrl": null,
+      "cover": null,
+      "platforms": [
+        "PS4",
+        "PS5"
+      ],
+      "source": "official-blog",
+      "sourcePostUrl": "https://blog.playstation.com/2024/05/01/playstation-plus-monthly-games-for-may-ea-sports-fc-24-ghostrunner-2-tunic-destiny-2-lightfall/"
+    },
+    {
+      "id": "blog:destiny-2-witch-queen:html:https://blog.playstation.com/2024/02/28/playstation-plus-monthly-games-for-march-ea-sports-f1-23-sifu-hello-neighbor-2-destiny-2-witch-queen/",
+      "slug": "destiny-2-witch-queen",
+      "displayTitle": "Destiny 2: Witch Queen**",
+      "normalizedTitle": "destiny 2 witch queen**",
+      "canonicalUrl": null,
+      "cover": null,
+      "platforms": [
+        "PS4",
+        "PS5"
+      ],
+      "source": "official-blog",
+      "sourcePostUrl": "https://blog.playstation.com/2024/02/28/playstation-plus-monthly-games-for-march-ea-sports-f1-23-sifu-hello-neighbor-2-destiny-2-witch-queen/"
+    },
+    {
       "id": "legacy:ext-2023-08-dah2",
       "slug": "destroy-all-humans-2-reprobed",
       "displayTitle": "Destroy All Humans! 2 - Reprobed",
@@ -883,6 +911,20 @@
       "legacyGameId": "ext-2023-04-dishonored"
     },
     {
+      "id": "blog:disney-pixar-wall-e:html:https://blog.playstation.com/2026/02/12/playstation-plus-game-catalog-for-february-marvels-spider-man-2-test-drive-unlimited-solar-crown-neva-season-a-letter-to-the-future-and-more/",
+      "slug": "disney-pixar-wall-e",
+      "displayTitle": "Disney Pixar Wall-E",
+      "normalizedTitle": "disney pixar wall e",
+      "canonicalUrl": null,
+      "cover": null,
+      "platforms": [
+        "PS5",
+        "PS4"
+      ],
+      "source": "official-blog",
+      "sourcePostUrl": "https://blog.playstation.com/2026/02/12/playstation-plus-game-catalog-for-february-marvels-spider-man-2-test-drive-unlimited-solar-crown-neva-season-a-letter-to-the-future-and-more/"
+    },
+    {
       "id": "legacy:ess-2022-12-dk",
       "slug": "divine-knockout",
       "displayTitle": "Divine Knockout",
@@ -920,6 +962,17 @@
         "PS5"
       ],
       "legacyGameId": "ext-2023-04-doom-e"
+    },
+    {
+      "id": "blog:download-the-image:html:https://blog.playstation.com/2023/11/29/playstation-plus-monthly-games-for-december-lego-2k-drive-powerwash-simulator-sable/",
+      "slug": "download-the-image",
+      "displayTitle": "Download the image",
+      "normalizedTitle": "download the image",
+      "canonicalUrl": null,
+      "cover": null,
+      "platforms": [],
+      "source": "official-blog",
+      "sourcePostUrl": "https://blog.playstation.com/2023/11/29/playstation-plus-monthly-games-for-december-lego-2k-drive-powerwash-simulator-sable/"
     },
     {
       "id": "legacy:ess-2025-03-dav",
@@ -1058,6 +1111,19 @@
       "legacyGameId": "ess-2024-05-fc24"
     },
     {
+      "id": "blog:echoes-of-the-end-enhanced-edition:html:https://blog.playstation.com/2026/02/12/playstation-plus-game-catalog-for-february-marvels-spider-man-2-test-drive-unlimited-solar-crown-neva-season-a-letter-to-the-future-and-more/",
+      "slug": "echoes-of-the-end-enhanced-edition",
+      "displayTitle": "Echoes of the End: Enhanced Edition",
+      "normalizedTitle": "echoes of the end enhanced edition",
+      "canonicalUrl": null,
+      "cover": null,
+      "platforms": [
+        "PS5"
+      ],
+      "source": "official-blog",
+      "sourcePostUrl": "https://blog.playstation.com/2026/02/12/playstation-plus-game-catalog-for-february-marvels-spider-man-2-test-drive-unlimited-solar-crown-neva-season-a-letter-to-the-future-and-more/"
+    },
+    {
       "id": "legacy:ess-2024-08-ender",
       "slug": "ender-lilies-quietus-of-the-knights",
       "displayTitle": "Ender Lilies: Quietus of the Knights",
@@ -1081,6 +1147,17 @@
         "PS5"
       ],
       "legacyGameId": "ess-2023-07-endling"
+    },
+    {
+      "id": "blog:enter-to-win-2-tickets-to-the-champions-league-final:html:https://blog.playstation.com/2024/03/27/playstation-plus-monthly-games-for-april-immortals-of-aveum-minecraft-legends-skul-the-hero-slayer/",
+      "slug": "enter-to-win-2-tickets-to-the-champions-league-final",
+      "displayTitle": "Enter to Win 2 tickets to the Champions League Final",
+      "normalizedTitle": "enter to win 2 tickets to the champions league final",
+      "canonicalUrl": null,
+      "cover": null,
+      "platforms": [],
+      "source": "official-blog",
+      "sourcePostUrl": "https://blog.playstation.com/2024/03/27/playstation-plus-monthly-games-for-april-immortals-of-aveum-minecraft-legends-skul-the-hero-slayer/"
     },
     {
       "id": "legacy:ess-2023-02-evildead",
@@ -1842,6 +1919,83 @@
       "legacyGameId": "ext-2023-05-lake"
     },
     {
+      "id": "blog:last-chance-to-download-april-s-games:html:https://blog.playstation.com/2024/05/01/playstation-plus-monthly-games-for-may-ea-sports-fc-24-ghostrunner-2-tunic-destiny-2-lightfall/",
+      "slug": "last-chance-to-download-april-s-games",
+      "displayTitle": "Last chance to download April’s games",
+      "normalizedTitle": "last chance to download april’s games",
+      "canonicalUrl": null,
+      "cover": null,
+      "platforms": [],
+      "source": "official-blog",
+      "sourcePostUrl": "https://blog.playstation.com/2024/05/01/playstation-plus-monthly-games-for-may-ea-sports-fc-24-ghostrunner-2-tunic-destiny-2-lightfall/"
+    },
+    {
+      "id": "blog:last-chance-to-download-february-s-monthly-games:html:https://blog.playstation.com/2024/02/28/playstation-plus-monthly-games-for-march-ea-sports-f1-23-sifu-hello-neighbor-2-destiny-2-witch-queen/",
+      "slug": "last-chance-to-download-february-s-monthly-games",
+      "displayTitle": "Last chance to download February’s Monthly Games",
+      "normalizedTitle": "last chance to download february’s monthly games",
+      "canonicalUrl": null,
+      "cover": null,
+      "platforms": [],
+      "source": "official-blog",
+      "sourcePostUrl": "https://blog.playstation.com/2024/02/28/playstation-plus-monthly-games-for-march-ea-sports-f1-23-sifu-hello-neighbor-2-destiny-2-witch-queen/"
+    },
+    {
+      "id": "blog:last-chance-to-download-july-s-games:html:https://blog.playstation.com/2024/07/31/playstation-plus-monthly-games-for-august-lego-star-wars-the-skywalker-saga-fnaf-security-breach-ender-lilies-quietus-of-the-knights/",
+      "slug": "last-chance-to-download-july-s-games",
+      "displayTitle": "Last chance to download July’s games",
+      "normalizedTitle": "last chance to download july’s games",
+      "canonicalUrl": null,
+      "cover": null,
+      "platforms": [],
+      "source": "official-blog",
+      "sourcePostUrl": "https://blog.playstation.com/2024/07/31/playstation-plus-monthly-games-for-august-lego-star-wars-the-skywalker-saga-fnaf-security-breach-ender-lilies-quietus-of-the-knights/"
+    },
+    {
+      "id": "blog:last-chance-to-download-june-s-games:html:https://blog.playstation.com/2024/06/26/playstation-plus-monthly-games-for-july-borderlands-3-nhl-24-among-us/",
+      "slug": "last-chance-to-download-june-s-games",
+      "displayTitle": "Last chance to download June’s games",
+      "normalizedTitle": "last chance to download june’s games",
+      "canonicalUrl": null,
+      "cover": null,
+      "platforms": [],
+      "source": "official-blog",
+      "sourcePostUrl": "https://blog.playstation.com/2024/06/26/playstation-plus-monthly-games-for-july-borderlands-3-nhl-24-among-us/"
+    },
+    {
+      "id": "blog:last-chance-to-download-march-s-monthly-games:html:https://blog.playstation.com/2024/03/27/playstation-plus-monthly-games-for-april-immortals-of-aveum-minecraft-legends-skul-the-hero-slayer/",
+      "slug": "last-chance-to-download-march-s-monthly-games",
+      "displayTitle": "Last chance to download March’s Monthly Games",
+      "normalizedTitle": "last chance to download march’s monthly games",
+      "canonicalUrl": null,
+      "cover": null,
+      "platforms": [],
+      "source": "official-blog",
+      "sourcePostUrl": "https://blog.playstation.com/2024/03/27/playstation-plus-monthly-games-for-april-immortals-of-aveum-minecraft-legends-skul-the-hero-slayer/"
+    },
+    {
+      "id": "blog:last-chance-to-download-november-s-monthly-games:html:https://blog.playstation.com/2023/11/29/playstation-plus-monthly-games-for-december-lego-2k-drive-powerwash-simulator-sable/",
+      "slug": "last-chance-to-download-november-s-monthly-games",
+      "displayTitle": "Last chance to download November’s Monthly Games",
+      "normalizedTitle": "last chance to download november’s monthly games",
+      "canonicalUrl": null,
+      "cover": null,
+      "platforms": [],
+      "source": "official-blog",
+      "sourcePostUrl": "https://blog.playstation.com/2023/11/29/playstation-plus-monthly-games-for-december-lego-2k-drive-powerwash-simulator-sable/"
+    },
+    {
+      "id": "blog:latest-news:html:https://blog.playstation.com/2023/11/29/playstation-plus-monthly-games-for-december-lego-2k-drive-powerwash-simulator-sable/",
+      "slug": "latest-news",
+      "displayTitle": "Latest News",
+      "normalizedTitle": "latest news",
+      "canonicalUrl": null,
+      "cover": null,
+      "platforms": [],
+      "source": "official-blog",
+      "sourcePostUrl": "https://blog.playstation.com/2023/11/29/playstation-plus-monthly-games-for-december-lego-2k-drive-powerwash-simulator-sable/"
+    },
+    {
       "id": "legacy:ext-2024-01-lom",
       "slug": "legend-of-mana",
       "displayTitle": "Legend of Mana",
@@ -1968,6 +2122,17 @@
       "legacyGameId": "ess-2024-09-ln2"
     },
     {
+      "id": "blog:lords-of-the-fallen:html:https://blog.playstation.com/2026/04/01/playstation-plus-monthly-games-for-april-lords-of-the-fallen-tomb-raider-i-iii-remastered-sword-art-online-fractured-daydream/",
+      "slug": "lords-of-the-fallen",
+      "displayTitle": "Lords of the Fallen",
+      "normalizedTitle": "lords of the fallen",
+      "canonicalUrl": null,
+      "cover": null,
+      "platforms": [],
+      "source": "official-blog",
+      "sourcePostUrl": "https://blog.playstation.com/2026/04/01/playstation-plus-monthly-games-for-april-lords-of-the-fallen-tomb-raider-i-iii-remastered-sword-art-online-fractured-daydream/"
+    },
+    {
       "id": "legacy:ext-2023-08-lj",
       "slug": "lost-judgment",
       "displayTitle": "Lost Judgment",
@@ -2078,6 +2243,19 @@
         "PS4"
       ],
       "legacyGameId": "ext-2022-06-spiderman"
+    },
+    {
+      "id": "blog:marvel-s-spider-man-2:html:https://blog.playstation.com/2026/02/12/playstation-plus-game-catalog-for-february-marvels-spider-man-2-test-drive-unlimited-solar-crown-neva-season-a-letter-to-the-future-and-more/",
+      "slug": "marvel-s-spider-man-2",
+      "displayTitle": "Marvel’s Spider-Man 2",
+      "normalizedTitle": "marvel’s spider man 2",
+      "canonicalUrl": null,
+      "cover": null,
+      "platforms": [
+        "PS5"
+      ],
+      "source": "official-blog",
+      "sourcePostUrl": "https://blog.playstation.com/2026/02/12/playstation-plus-game-catalog-for-february-marvels-spider-man-2-test-drive-unlimited-solar-crown-neva-season-a-letter-to-the-future-and-more/"
     },
     {
       "id": "legacy:ext-2022-06-mm",
@@ -2241,6 +2419,32 @@
         "PS5"
       ],
       "legacyGameId": "ext-2024-06-mhr"
+    },
+    {
+      "id": "blog:monster-hunter-stories:html:https://blog.playstation.com/2026/02/12/playstation-plus-game-catalog-for-february-marvels-spider-man-2-test-drive-unlimited-solar-crown-neva-season-a-letter-to-the-future-and-more/",
+      "slug": "monster-hunter-stories",
+      "displayTitle": "Monster Hunter Stories",
+      "normalizedTitle": "monster hunter stories",
+      "canonicalUrl": null,
+      "cover": null,
+      "platforms": [
+        "PS4"
+      ],
+      "source": "official-blog",
+      "sourcePostUrl": "https://blog.playstation.com/2026/02/12/playstation-plus-game-catalog-for-february-marvels-spider-man-2-test-drive-unlimited-solar-crown-neva-season-a-letter-to-the-future-and-more/"
+    },
+    {
+      "id": "blog:monster-hunter-stories-2-wings-of-ruin:html:https://blog.playstation.com/2026/02/12/playstation-plus-game-catalog-for-february-marvels-spider-man-2-test-drive-unlimited-solar-crown-neva-season-a-letter-to-the-future-and-more/",
+      "slug": "monster-hunter-stories-2-wings-of-ruin",
+      "displayTitle": "Monster Hunter Stories 2: Wings of Ruin",
+      "normalizedTitle": "monster hunter stories 2 wings of ruin",
+      "canonicalUrl": null,
+      "cover": null,
+      "platforms": [
+        "PS4"
+      ],
+      "source": "official-blog",
+      "sourcePostUrl": "https://blog.playstation.com/2026/02/12/playstation-plus-game-catalog-for-february-marvels-spider-man-2-test-drive-unlimited-solar-crown-neva-season-a-letter-to-the-future-and-more/"
     },
     {
       "id": "legacy:ext-2025-02-mordhau",
@@ -2575,6 +2779,17 @@
       "legacyGameId": "ess-2023-08-pga"
     },
     {
+      "id": "blog:playstation-plus:html:https://blog.playstation.com/2025/12/10/playstation-plus-game-catalog-for-december-assassins-creed-mirage-wo-long-fallen-dynasty-skate-story-and-more/",
+      "slug": "playstation-plus",
+      "displayTitle": "PlayStation Plus",
+      "normalizedTitle": "playstation plus",
+      "canonicalUrl": null,
+      "cover": null,
+      "platforms": [],
+      "source": "official-blog",
+      "sourcePostUrl": "https://blog.playstation.com/2025/12/10/playstation-plus-game-catalog-for-december-assassins-creed-mirage-wo-long-fallen-dynasty-skate-story-and-more/"
+    },
+    {
       "id": "legacy:ess-2023-12-pw",
       "slug": "powerwash-simulator",
       "displayTitle": "PowerWash Simulator",
@@ -2838,6 +3053,20 @@
       "legacyGameId": "ess-2024-02-roller"
     },
     {
+      "id": "blog:rugby-25:html:https://blog.playstation.com/2026/02/12/playstation-plus-game-catalog-for-february-marvels-spider-man-2-test-drive-unlimited-solar-crown-neva-season-a-letter-to-the-future-and-more/",
+      "slug": "rugby-25",
+      "displayTitle": "Rugby 25",
+      "normalizedTitle": "rugby 25",
+      "canonicalUrl": null,
+      "cover": null,
+      "platforms": [
+        "PS5",
+        "PS4"
+      ],
+      "source": "official-blog",
+      "sourcePostUrl": "https://blog.playstation.com/2026/02/12/playstation-plus-game-catalog-for-february-marvels-spider-man-2-test-drive-unlimited-solar-crown-neva-season-a-letter-to-the-future-and-more/"
+    },
+    {
       "id": "legacy:ess-2023-12-sable",
       "slug": "sable",
       "displayTitle": "Sable",
@@ -2938,6 +3167,20 @@
         "PS5"
       ],
       "legacyGameId": "ext-2023-08-sos"
+    },
+    {
+      "id": "blog:season-a-letter-to-the-future:html:https://blog.playstation.com/2026/02/12/playstation-plus-game-catalog-for-february-marvels-spider-man-2-test-drive-unlimited-solar-crown-neva-season-a-letter-to-the-future-and-more/",
+      "slug": "season-a-letter-to-the-future",
+      "displayTitle": "Season: A Letter to the Future",
+      "normalizedTitle": "season a letter to the future",
+      "canonicalUrl": null,
+      "cover": null,
+      "platforms": [
+        "PS5",
+        "PS4"
+      ],
+      "source": "official-blog",
+      "sourcePostUrl": "https://blog.playstation.com/2026/02/12/playstation-plus-game-catalog-for-february-marvels-spider-man-2-test-drive-unlimited-solar-crown-neva-season-a-letter-to-the-future-and-more/"
     },
     {
       "id": "legacy:ext-2024-01-som",
@@ -3077,6 +3320,17 @@
         "PS5"
       ],
       "legacyGameId": "ext-2024-12-sonic"
+    },
+    {
+      "id": "blog:sony-pictures-core-movie-credit-promo-december-11-january-12:html:https://blog.playstation.com/2025/12/10/playstation-plus-game-catalog-for-december-assassins-creed-mirage-wo-long-fallen-dynasty-skate-story-and-more/",
+      "slug": "sony-pictures-core-movie-credit-promo-december-11-january-12",
+      "displayTitle": "Sony Pictures Core Movie Credit Promo | December 11 – January 12**",
+      "normalizedTitle": "sony pictures core movie credit promo december 11 january 12**",
+      "canonicalUrl": null,
+      "cover": null,
+      "platforms": [],
+      "source": "official-blog",
+      "sourcePostUrl": "https://blog.playstation.com/2025/12/10/playstation-plus-game-catalog-for-december-assassins-creed-mirage-wo-long-fallen-dynasty-skate-story-and-more/"
     },
     {
       "id": "legacy:ext-2023-06-soulstice",
@@ -3253,6 +3507,17 @@
       "legacyGameId": "ext-2023-11-superlim"
     },
     {
+      "id": "blog:sword-art-online-fractured-daydream:html:https://blog.playstation.com/2026/04/01/playstation-plus-monthly-games-for-april-lords-of-the-fallen-tomb-raider-i-iii-remastered-sword-art-online-fractured-daydream/",
+      "slug": "sword-art-online-fractured-daydream",
+      "displayTitle": "Sword Art Online Fractured Daydream",
+      "normalizedTitle": "sword art online fractured daydream",
+      "canonicalUrl": null,
+      "cover": null,
+      "platforms": [],
+      "source": "official-blog",
+      "sourcePostUrl": "https://blog.playstation.com/2026/04/01/playstation-plus-monthly-games-for-april-lords-of-the-fallen-tomb-raider-i-iii-remastered-sword-art-online-fractured-daydream/"
+    },
+    {
       "id": "legacy:prem-2022-06-sf",
       "slug": "syphon-filter",
       "displayTitle": "Syphon Filter",
@@ -3366,6 +3631,19 @@
       "legacyGameId": "ess-2024-12-temtem"
     },
     {
+      "id": "blog:test-drive-unlimited-solar-crown:html:https://blog.playstation.com/2026/02/12/playstation-plus-game-catalog-for-february-marvels-spider-man-2-test-drive-unlimited-solar-crown-neva-season-a-letter-to-the-future-and-more/",
+      "slug": "test-drive-unlimited-solar-crown",
+      "displayTitle": "Test Drive Unlimited Solar Crown",
+      "normalizedTitle": "test drive unlimited solar crown",
+      "canonicalUrl": null,
+      "cover": null,
+      "platforms": [
+        "PS5"
+      ],
+      "source": "official-blog",
+      "sourcePostUrl": "https://blog.playstation.com/2026/02/12/playstation-plus-game-catalog-for-february-marvels-spider-man-2-test-drive-unlimited-solar-crown-neva-season-a-letter-to-the-future-and-more/"
+    },
+    {
       "id": "legacy:ess-2023-10-callisto",
       "slug": "the-callisto-protocol",
       "displayTitle": "The Callisto Protocol",
@@ -3415,6 +3693,17 @@
         "PS5"
       ],
       "legacyGameId": "ext-2024-10-dim"
+    },
+    {
+      "id": "blog:the-ea-sports-fc-24-ultimate-team-starter-pack:html:https://blog.playstation.com/2024/05/01/playstation-plus-monthly-games-for-may-ea-sports-fc-24-ghostrunner-2-tunic-destiny-2-lightfall/",
+      "slug": "the-ea-sports-fc-24-ultimate-team-starter-pack",
+      "displayTitle": "The EA Sports FC 24 Ultimate Team Starter Pack",
+      "normalizedTitle": "the ea sports fc 24 ultimate team starter pack",
+      "canonicalUrl": null,
+      "cover": null,
+      "platforms": [],
+      "source": "official-blog",
+      "sourcePostUrl": "https://blog.playstation.com/2024/05/01/playstation-plus-monthly-games-for-may-ea-sports-fc-24-ghostrunner-2-tunic-destiny-2-lightfall/"
     },
     {
       "id": "legacy:ext-2022-11-skyrim",
@@ -3592,6 +3881,17 @@
         "PS5"
       ],
       "legacyGameId": "ess-2022-09-toem"
+    },
+    {
+      "id": "blog:tomb-raider-i-iii-remastered:html:https://blog.playstation.com/2026/04/01/playstation-plus-monthly-games-for-april-lords-of-the-fallen-tomb-raider-i-iii-remastered-sword-art-online-fractured-daydream/",
+      "slug": "tomb-raider-i-iii-remastered",
+      "displayTitle": "Tomb Raider I-III Remastered",
+      "normalizedTitle": "tomb raider i iii remastered",
+      "canonicalUrl": null,
+      "cover": null,
+      "platforms": [],
+      "source": "official-blog",
+      "sourcePostUrl": "https://blog.playstation.com/2026/04/01/playstation-plus-monthly-games-for-april-lords-of-the-fallen-tomb-raider-i-iii-remastered-sword-art-online-fractured-daydream/"
     },
     {
       "id": "legacy:ext-2023-05-tomb",
@@ -3916,5 +4216,6 @@
       ],
       "legacyGameId": "ext-2022-12-ylad2"
     }
-  ]
+  ],
+  "updatedAt": "2026-04-09T01:47:10.358Z"
 }
